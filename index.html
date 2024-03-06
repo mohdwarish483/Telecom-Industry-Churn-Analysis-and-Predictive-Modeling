@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Churn Prediction</title>
+    <style>
+        body {
+            background-image: url('https://static.vecteezy.com/system/resources/previews/010/008/086/non_2x/background-dimension-3d-graphic-message-board-for-text-and-message-design-line-shadow-for-modern-web-design-free-vector.jpg');
+            background-size: cover;
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            width: 60%;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+
+        input[type='text'] {
+            width: 80%;
+            padding: 8px;
+            margin: 6px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type='submit'] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type='submit']:hover {
+            background-color: #45a049;
+        }
+
+        label {
+            color: #555;
+            display: block;
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        label, span {
+            display: inline-block;
+            width: 45%;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 style="color: white;">Churn Prediction</h2>
+    <form action='/predict' method="POST">
+    <label><span>Tenure:</span> <input type='text' name='tenure'></label>
+    <label><span>Monthly Charges:</span> <input type='text' name='MonthlyCharges'></label>
+    <label><span>Total Charges:</span> <input type='text' name='TotalCharges'></label>
+    <label><span>Gender Male:</span> <input type='text' name='gender_Male'></label>
+    <label><span>Senior Citizen_1:</span> <input type='text' name='SeniorCitizen_1'></label>
+    <label><span>Partner_Yes:</span> <input type='text' name='Partner_Yes'></label>
+    <label><span>Dependents_Yes:</span> <input type='text' name='Dependents_Yes'></label>
+    <label><span>PhoneService_Yes:</span> <input type='text' name='PhoneService_Yes'></label>
+    <label><span>MultipleLines_No phone service:</span> <input type='text' name='MultipleLines_No phone service'></label>
+    <label><span>MultipleLines_Yes:</span> <input type='text' name='MultipleLines_Yes'></label>
+    <label><span>InternetService_Fiber optic:</span> <input type='text' name='InternetService_Fiber optic'></label>
+    <label><span>InternetService_No:</span> <input type='text' name='InternetService_No'></label>
+    <label><span>OnlineSecurity_No internet service:</span> <input type='text' name='OnlineSecurity_No internet service'></label>
+    <label><span>OnlineSecurity_Yes:</span> <input type='text' name='OnlineSecurity_Yes'></label>
+    <label><span>OnlineBackup_No internet service:</span> <input type='text' name='OnlineBackup_No internet service'></label>
+    <label><span>OnlineBackup_Yes:</span> <input type='text' name='OnlineBackup_Yes'></label>
+    <label><span>DeviceProtection_No internet service:</span> <input type='text' name='DeviceProtection_No internet service'></label>
+    <label><span>DeviceProtection_Yes:</span> <input type='text' name='DeviceProtection_Yes'></label>
+    <label><span>TechSupport_No internet service:</span> <input type='text' name='TechSupport_No internet service'></label>
+    <label><span>TechSupport_Yes:</span> <input type='text' name='TechSupport_Yes'></label>
+    <label><span>StreamingTV_No internet service:</span> <input type='text' name='StreamingTV_No internet service'></label>
+    <label><span>StreamingTV_Yes:</span> <input type='text' name='StreamingTV_Yes'></label>
+    <label><span>StreamingMovies_No internet service:</span> <input type='text' name='StreamingMovies_No internet service'></label>
+    <label><span>StreamingMovies_Yes:</span> <input type='text' name='StreamingMovies_Yes'></label>
+    <label><span>Contract_One year:</span> <input type='text' name='Contract_One year'></label>
+    <label><span>Contract_Two year:</span> <input type='text' name='Contract_Two year'></label>
+    <label><span>PaperlessBilling_Yes:</span> <input type='text' name='PaperlessBilling_Yes'></label>
+    <label><span>PaymentMethod_Credit card:</span> <input type='text' name='PaymentMethod_Credit card'></label>
+    <label><span>PaymentMethod_Electronic check:</span> <input type='text' name='PaymentMethod_Electronic check'></label>
+    <label><span>PaymentMethod_Mailed check:</span> <input type='text' name='PaymentMethod_Mailed check'></label>
+
+
+    <label>Churn Risk: {{result}}</label><br>
+
+    <input type='submit' value='Predict'>
+    </form>
+</body>
+
+</html>
